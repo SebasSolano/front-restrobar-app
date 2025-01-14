@@ -1,3 +1,21 @@
-<p>
-  image-upload works!
-</p>
+<div class="bg-white shadow-lg p-6 rounded-lg mt-10">
+  <h2 class="text-2xl font-bold mb-4">Upload Image</h2>
+  <input
+    type="file"
+    (change)="onFileSelected($event)"
+    class="mb-2"
+    accept="image/jpeg, image/jpg"
+  />
+  <input
+    type="text"
+    [(ngModel)]="name"
+    placeholder="Enter image name"
+    class="border p-2 rounded w-full mb-4"
+  />
+  <button
+    (click)="uploadImage()"
+    class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition-all"
+  >
+    Upload Image
+  </button>
+</div>
