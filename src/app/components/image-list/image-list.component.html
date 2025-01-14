@@ -1,3 +1,24 @@
-<p>
-  image-list works!
-</p>
+<div class="bg-white shadow-lg p-6 rounded-lg mt-10">
+  <h2 class="text-2xl font-bold mb-4">Fetch Images</h2>
+  <input
+    type="date"
+    [(ngModel)]="startDate"
+    class="border p-2 rounded w-full mb-2"
+  />
+  <input
+    type="date"
+    [(ngModel)]="endDate"
+    class="border p-2 rounded w-full mb-4"
+  />
+  <button
+    (click)="fetchImages()"
+    class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700 transition"
+  >
+    Get Images
+  </button>
+  <ul *ngIf="uploadedImages.length" class="mt-4">
+    <li *ngFor="let image of uploadedImages">
+      {{ image.name }} - {{ image.uploadDate }}
+    </li>
+  </ul>
+</div>

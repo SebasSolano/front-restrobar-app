@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from '../../services/image.service';
+import { FormsModule } from '@angular/forms';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-image-list',
   templateUrl: './image-list.component.html',
+  imports: [FormsModule, NgIf, NgFor],
   styleUrls: ['./image-list.component.css'],
 })
 export class ImageListComponent implements OnInit {
@@ -15,7 +18,7 @@ export class ImageListComponent implements OnInit {
 
   ngOnInit() {}
 
-  fetchImage() {
+  fetchImages() {
     if (this.startDate && this.endDate) {
       this.imageService
         .getImagesBetweenDates(this.startDate, this.endDate)
