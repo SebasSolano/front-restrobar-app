@@ -18,7 +18,8 @@
   </button>
   <ul *ngIf="uploadedImages.length" class="mt-4">
     <li *ngFor="let image of uploadedImages">
-      {{ image.name }} - {{ image.uploadDate }}
+      {{ image.name }} - {{ image.uploadDate | date:'yyyy-MM-dd HH:mm:ss' }}
+      <img [src]="'http://localhost:5000/' + image.url" [alt]="image.name" class="w-32 h-32" />
     </li>
   </ul>
 </div>

@@ -22,10 +22,15 @@ export class ImageUploadComponent implements OnInit {
 
   uploadImage() {
     if (this.imageFile && this.name) {
-      this.imageService.uploadImage(this.imageFile, this.name).subscribe({
-        next: () => alert('Image uploaded successfully!'),
-        error: (err) => console.error(err),
-      });
+      const reader = new FileReader();
+      reader.onload = () => {
+        const base64Image = (reader.result as string).split(',')[1];
+        this.imageService.uploadImage(base64Image, this.name).subscribe({
+          next: () => alert('Image uploaded successfully!'),
+          error: (err) => console.error(err),
+        });
+      };
+      reader.readAsDataURL(this.imageFile);
     } else {
       alert('Please select an image and enter a name');
     }

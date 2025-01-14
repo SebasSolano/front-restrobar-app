@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from '../../services/image.service';
 import { FormsModule } from '@angular/forms';
-import { NgFor, NgIf } from '@angular/common';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-image-list',
   templateUrl: './image-list.component.html',
-  imports: [FormsModule, NgIf, NgFor],
+  imports: [FormsModule, NgIf, NgFor, CommonModule],
   styleUrls: ['./image-list.component.css'],
 })
 export class ImageListComponent implements OnInit {

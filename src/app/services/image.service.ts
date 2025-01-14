@@ -6,16 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ImageService {
-  private apiUrl = 'http://localhost:5000/api/';
+  private apiUrl = 'http://localhost:5000/api';
 
   constructor(private http: HttpClient) {}
 
-  uploadImage(file: File, name: string): Observable<any> {
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('name', name);
-
-    return this.http.post(`${this.apiUrl}/upload`, formData);
+  uploadImage(base64Image: string, name: string): Observable<any> {
+    const payload = { image: base64Image, name };
+    return this.http.post(`${this.apiUrl}/upload`, payload);
   }
 
   getImagesBetweenDates(startDate: string, endDate: string): Observable<any> {
