@@ -1,3 +1,15 @@
-<p>
-  image-stats works!
-</p>
+<div>
+  <h2>Image Stats</h2>
+  <button
+    (click)="fetchStats()"
+    class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-700 transition-all"
+  >
+    Get Stats
+  </button>
+  <ul class="mt-4">
+    <li *ngFor="let stat of stats">
+      <strong>Hour:</strong> {{ stat._id }} | <strong>Count:</strong>
+      {{ stat.count }}
+    </li>
+  </ul>
+</div>
