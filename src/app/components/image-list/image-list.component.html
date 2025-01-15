@@ -1,25 +1,48 @@
-<div class="bg-white shadow-lg p-6 rounded-lg mt-10">
-  <h2 class="text-2xl font-bold mb-4">Fetch Images</h2>
-  <input
-    type="date"
-    [(ngModel)]="startDate"
-    class="border p-2 rounded w-full mb-2"
-  />
-  <input
-    type="date"
-    [(ngModel)]="endDate"
-    class="border p-2 rounded w-full mb-4"
-  />
+<h2 class="text-2xl font-bold mb-4">Fetch Images</h2>
+<div class="w-full flex items-center justify-between space-x-6 mt-5 mb-5">
+  <div class="flex-1 items-center justify-start">
+    <label class="font-semibold">Start</label>
+    <input
+      type="date"
+      [(ngModel)]="startDate"
+      class="border p-2 rounded-full w-full"
+    />
+  </div>
+  <div class="flex-1 items-center justify-start">
+    <label class="font-semibold">End</label>
+    <input
+      type="date"
+      [(ngModel)]="endDate"
+      class="border p-2 rounded-full w-full"
+    />
+  </div>
+</div>
+<div class="w-full flex items-center justify-end">
   <button
     (click)="fetchImages()"
-    class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700 transition"
+    class="bg-green-500 text-white p-2 rounded-xl hover:bg-green-600 transition-all"
   >
     Get Images
   </button>
-  <ul *ngIf="uploadedImages.length" class="mt-4">
-    <li *ngFor="let image of uploadedImages">
-      {{ image.name }} - {{ image.uploadDate | date:'yyyy-MM-dd HH:mm:ss' }}
-      <img [src]="'http://localhost:5000/' + image.url" [alt]="image.name" class="w-32 h-32" />
-    </li>
-  </ul>
 </div>
+
+<ul
+  *ngIf="uploadedImages.length"
+  class="mt-4 overflow-y-auto overflow-x-hidden h-[550px] grid grid-cols-4 gap-2 w-full p-1"
+>
+  <li *ngFor="let image of uploadedImages">
+    <div class="bg-gray-200 flex items-center justify-start p-2 rounded-lg">
+      <img
+        [src]="'http://localhost:5000/' + image.url"
+        [alt]="image.name"
+        class="w-32 h-32 rounded-md"
+      />
+      <div class="flex flex-col items-start ml-3">
+        <span class="text-md font-semibold">{{ image.name }}</span>
+        <span class="text-sm text-gray-400">{{
+          image.uploadDate | date : "yyyy-MM-dd HH:mm:ss"
+        }}</span>
+      </div>
+    </div>
+  </li>
+</ul>
