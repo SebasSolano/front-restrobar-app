@@ -1,0 +1,30 @@
+<div class="container mx-auto">
+  <nav
+    class="w-full bg-gray-100 p-10 rounded-b-lg flex items-center justify-between"
+  >
+    <div class="flex items-center space-x-5">
+      <span class="text-4xl font-semibold text-gray-800 hover:cursor-pointer"> RestoBar - </span>
+
+      <button class="bg-red-400 p-2 rounded-xl font-semibold text-gray-800 hover:bg-red-500 transition-all">Eliminate Images</button>
+    </div>
+
+    <div>
+      <a
+        routerLink="/"
+        class="text-black p-2 cursor-pointer hover:text-gray-600"
+        >Home</a
+      >
+      <a
+        routerLink="/list"
+        class="text-black p-2 cursor-pointer hover:text-gray-600"
+        >List</a
+      >
+      <a
+        routerLink="/stats"
+        class="text-black p-2 cursor-pointer hover:text-gray-600"
+        >Stats</a
+      >
+    </div>
+  </nav>
+  <app-image-upload></app-image-upload>
+</div>
