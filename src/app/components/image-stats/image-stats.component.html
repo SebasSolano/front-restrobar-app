@@ -1,15 +1,19 @@
 <div>
-  <h2>Image Stats</h2>
-  <button
-    (click)="fetchStats()"
-    class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-700 transition-all"
+  <h1 class="text-xl font-semibold text-gray-800">Image Stats</h1>
+  <ul
+    *ngIf="stats.length"
+    class="mt-4 overflow-y-auto overflow-x-hidden h-[550px] grid grid-cols-6 gap-2 w-full p-1"
   >
-    Get Stats
-  </button>
-  <ul class="mt-4">
     <li *ngFor="let stat of stats">
-      <strong>Hour:</strong> {{ stat._id }} | <strong>Count:</strong>
-      {{ stat.count }}
+      <div
+        class="w-full h-20 bg-gray-800 rounded-md text-white p-5 flex items-center justify-center shadow cursor-pointer"
+      >
+        <div class=""><strong>Hour:</strong> {{ stat._id }}</div>
+        <div class="ml-2">|
+          <strong>Count:</strong>
+          {{ stat.count }}
+        </div>
+      </div>
     </li>
   </ul>
 </div>
