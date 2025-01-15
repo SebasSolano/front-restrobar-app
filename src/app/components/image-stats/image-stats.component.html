@@ -1,3 +1,19 @@
-<p>
-  image-stats works!
-</p>
+<div>
+  <h1 class="text-xl font-semibold text-gray-800">Image Stats</h1>
+  <ul
+    *ngIf="stats.length"
+    class="mt-4 overflow-y-auto overflow-x-hidden h-[550px] grid grid-cols-6 gap-2 w-full p-1"
+  >
+    <li *ngFor="let stat of stats">
+      <div
+        class="w-full h-20 bg-gray-800 rounded-md text-white p-5 flex items-center justify-center shadow cursor-pointer"
+      >
+        <div class=""><strong>Hour:</strong> {{ stat._id }}</div>
+        <div class="ml-2">|
+          <strong>Count:</strong>
+          {{ stat.count }}
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
