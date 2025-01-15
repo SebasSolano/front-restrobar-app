@@ -26,4 +26,8 @@ export class ImageService {
   getImagesStats(): Observable<any> {
     return this.http.get(`${this.apiUrl}/stats`);
   }
+
+  deleteAllImages(): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/images`);
+  }
 }
